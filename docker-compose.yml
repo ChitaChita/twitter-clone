@@ -9,4 +9,29 @@ services:
     volumes:
       - ./src:/var/www/html:cached
     ports:
-      - "8000:8000"
+      - "9000:9000"
+  f-mysql:
+    image: mysql:5.7
+    container_name: f-mysql
+    ports:
+      -  "3306:3306"
+    volumes:
+      -  mysqldata:/var/lib/mysql
+      -  ./my_conf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: laravel
+  f-nginx:
+    image: nginx:stable-alpine
+    container_name: f-nginx
+    ports:
+      -  "8080:80"
+    volumes:
+      -  ./src:/var/www/html
+      -  ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      -  frontier
+      -  f-mysql
+
+volumes:
+  mysqldata:
