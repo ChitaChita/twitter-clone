@@ -24,7 +24,9 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
+        );
+        DB::table('users')->insert(
             [
                 'name' => 'user02',
                 'password' => Hash::make('2222'),
@@ -34,7 +36,9 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
+        );
+        DB::table('users')->insert(
             [
                 'name' => 'user03',
                 'password' => Hash::make('3333'),
@@ -44,7 +48,9 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
+        );
+        DB::table('users')->insert(
             [
                 'name' => 'user04',
                 'password' => Hash::make('4444'),
@@ -54,7 +60,9 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
+        );
+        DB::table('users')->insert(
             [
                 'name' => 'user05',
                 'password' => Hash::make('5555'),
@@ -64,7 +72,7 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
+            ]
         );
     }
 }

@@ -14,49 +14,69 @@ class RelationsTableSeeder extends Seeder
     {
         DB::table('relations')->insert(
             [
-              'user_id'    => 1,
-              'follow_id'    => 2,
-            ],
+                'user_id' => 1,
+                'follow_id' => 2
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 1,
-              'follow_id'    => 3,
-            ],
+                'user_id' => 1,
+                'follow_id' => 3
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 1,
-              'follow_id'    => 4,
-            ],
+                'user_id' => 1,
+                'follow_id' => 4
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 1,
-              'follow_id'    => 5,
-            ],
+                'user_id' => 1,
+                'follow_id' => 5
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 2,
-              'follow_id'    => 1,
-            ],
+                'user_id' => 2,
+                'follow_id' => 1
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 2,
-              'follow_id'    => 3,
-            ],
+                'user_id' => 2,
+                'follow_id' => 3
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 3,
-              'follow_id'    => 4,
-            ],
+                'user_id' => 3,
+                'follow_id' => 4
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 3,
-              'follow_id'    => 5,
-            ],
+                'user_id' => 3,
+                'follow_id' => 5
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 4,
-              'follow_id'    => 3,
-            ],
+                'user_id' => 4,
+                'follow_id' => 3
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 5,
-              'follow_id'    => 2,
-            ],
+                'user_id' => 5,
+                'follow_id' => 2
+            ]
+        );
+        DB::table('relations')->insert(
             [
-              'user_id'    => 5,
-              'follow_id'    => 4,
-            ],
-          );
+                'user_id' => 5,
+                'follow_id' => 4
+            ]
+        );
     }
 }
