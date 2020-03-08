@@ -14,7 +14,9 @@ class ChangeUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('name', 100)->unique()->change();
+            $table->string('screen_name', 100)->change();
+            $table->string('icon_image', 100)->change();
         });
     }
 
