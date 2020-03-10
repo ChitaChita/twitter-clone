@@ -41,5 +41,10 @@ class User extends Authenticatable
 	public function Relations()
 	{
 		return $this->hasMany(Relation::class);
-	}
+    }
+
+    public function getAllUsers(Int $user_id)
+    {
+        return $this->Where('id', '<>', $user_id)->paginate(5);
+    }
 }
