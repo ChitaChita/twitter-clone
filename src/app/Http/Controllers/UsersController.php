@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Tweet;
-use App\Models\Follower;
+use App\Models\Relation;
 
 
 class UsersController extends Controller
@@ -90,5 +90,30 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+    // フォロー
+    public function follow(User $user)
+    {
+        $relation = auth()->user();
+        // フォローしているか
+        $is_following = $relation->isFollowing($user->id);
+        if(!$is_following) {
+            // フォローしていなければフォローする
+            $relation->follow($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unfollow(User $user)
+    {
+        $relation = auth()->user();
+        // フォローしているか
+        $is_following = $relation->isFollowing($user->id);
+        if($is_following) {
+            // フォローしていればフォローを解除する
+            $relation->unfollow($user->id);
+            return back();
+        }
     }
 }
