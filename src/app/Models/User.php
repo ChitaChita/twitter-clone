@@ -33,12 +33,24 @@ class User extends Authenticatable
         'remember_token'
     ];
 
-    public function followers()
+    //table relational method
+    public function Tweets()
+	{
+		return $this->hasMany(Tweet::class);
+	}
+
+	public function Relations()
+	{
+		return $this->hasMany(Relation::class);
+    }
+
+    //同一テーブル内のリレーションメソッド
+    public function follows()
     {
         return $this->belongsToMany(self::class, 'relations', 'user_id', 'follow_id');
     }
 
-    public function follows()
+    public function followers()
     {
         return $this->belongsToMany(self::class, 'relations', 'follow_id', 'user_id');
     }
@@ -50,26 +62,26 @@ class User extends Authenticatable
     }
 
     // フォローする
-    public function follow(Int $user_id)
+    public function follow(Int $follow_id)
     {
-        return $this->follows()->attach($user_id);
+        return $this->follows()->attach($follow_id);
     }
 
     // フォロー解除する
-    public function unfollow(Int $user_id)
+    public function unfollow(Int $follow_id)
     {
-        return $this->follows()->detach($user_id);
+        return $this->follows()->detach($follow_id);
     }
 
     // フォローしているか
     public function isFollowing(Int $user_id)
     {
-        return (boolean) $this->follows()->where('user_id', $user_id)->first(['id']);
+        return (boolean) $this->follows()->where('follow_id', $user_id)->first(['id']);
     }
 
     // フォローされているか
     public function isFollowed(Int $user_id)
     {
-        return (boolean) $this->followers()->where('follow_id', $user_id)->first(['id']);
+        return (boolean) $this->followers()->where('user_id', $user_id)->first(['id']);
     }
 }
