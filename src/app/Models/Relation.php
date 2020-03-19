@@ -34,6 +34,6 @@ class Relation extends Model
     // フォローしているユーザのIDを取得
     public function followingIds(Int $user_id)
     {
-        return $this->where('user_id', $user_id)->get('followed_id');
+        return $this->where('user_id', $user_id)->get('follow_id');
     }
 }

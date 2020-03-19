@@ -62,15 +62,15 @@ class User extends Authenticatable
     }
 
     // フォローする
-    public function follow(Int $follow_id)
+    public function follow(Int $user_id)
     {
-        return $this->follows()->attach($follow_id);
+        return $this->follows()->attach($user_id);
     }
 
     // フォロー解除する
-    public function unfollow(Int $follow_id)
+    public function unfollow(Int $user_id)
     {
-        return $this->follows()->detach($follow_id);
+        return $this->follows()->detach($user_id);
     }
 
     // フォローしているか
