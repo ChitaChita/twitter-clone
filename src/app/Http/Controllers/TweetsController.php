@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Tweet;
+use App\Models\Relation;
 
 class TweetsController extends Controller
 {
@@ -11,9 +14,19 @@ class TweetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tweet $tweet, Relation $relation)
     {
-        //
+        $user = auth()->user();
+        $follow_ids = $relation->followingIds($user->id);
+        // follow_idだけ抜き出す
+        $following_ids = $follow_ids->pluck('follow_id')->toArray();
+
+        $timelines = $tweet->getTimelines($user->id, $following_ids);
+
+        return view('tweets.index', [
+            'user'      => $user,
+            'timelines' => $timelines
+        ]);
     }
 
     /**

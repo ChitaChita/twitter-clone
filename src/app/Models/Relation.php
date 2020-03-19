@@ -31,7 +31,7 @@ class Relation extends Model
         return $this->where('follow_id', $user_id)->count();
     }
 
-    // フォローしているユーザのIDを取得
+    // フォローしているユーザのIDを取得　ツイート時
     public function followingIds(Int $user_id)
     {
         return $this->where('user_id', $user_id)->get('follow_id');
