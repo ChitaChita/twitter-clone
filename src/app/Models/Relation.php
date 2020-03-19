@@ -20,4 +20,20 @@ class Relation extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function getFollowCount($user_id)
+    {
+        return $this->where('user_id', $user_id)->count();
+    }
+
+    public function getFollowerCount($user_id)
+    {
+        return $this->where('follow_id', $user_id)->count();
+    }
+
+    // フォローしているユーザのIDを取得
+    public function followingIds(Int $user_id)
+    {
+        return $this->where('user_id', $user_id)->get('follow_id');
+    }
 }
