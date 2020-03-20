@@ -19,14 +19,16 @@
 
 ### docker-composeを使ってアプリを起動
     docker-compose up
-    
-    =>
-    コンテナが立ち上がる
-    
+
+=>
+コンテナが立ち上がる
+
     docker-compose ps -a
-    
-    =>
-      Name                Command              State               Ports
+
+=>
+立ち上がったコンテナを表示する
+
+     Name                Command              State               Ports
     --------------------------------------------------------------------------------
     f-mysql    docker-entrypoint.sh mysqld     Up      0.0.0.0:3306->3306/tcp,
                                                        33060/tcp
@@ -43,4 +45,4 @@
 ##### コンテナを停止して破棄
     docker-compose down
 
-※ volume上にDBを作るようにしているため、オプションの-vを使うとデータが消えるので注意してください。
+※ volume上にDBをマウントしているため、オプションの-vを使うとデータが消えるので注意してください。
