@@ -34,15 +34,16 @@ class User extends Authenticatable
     ];
 
     //table relational method
-    public function Tweets()
-	{
-		return $this->hasMany(Tweet::class);
-	}
+    // public function Tweets()
+	// {
+    // 	return $this->hasMany('App\Tweet');
+    // 	return $this->hasMany(Tweet::class);
+	// }
 
-	public function Relations()
-	{
-		return $this->hasMany(Relation::class);
-    }
+	// public function Relations()
+	// {
+	// 	return $this->hasMany(Relation::class);
+    // }
 
     //同一テーブル内のリレーションメソッド
     public function follows()

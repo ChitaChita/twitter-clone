@@ -62,9 +62,8 @@ class UsersController extends Controller
         $tweet_count = $tweet->getTweetCount($user->id);
         $follow_count = $relation->getFollowCount($user->id);
         $follower_count = $relation->getFollowerCount($user->id);
-
         return view('users.show', [
-            'user'           => $user,
+            'user'           => $login_user,
             'is_following'   => $is_following,
             'is_followed'    => $is_followed,
             'timelines'      => $timelines,

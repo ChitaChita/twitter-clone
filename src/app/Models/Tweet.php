@@ -23,10 +23,11 @@ class Tweet extends Model
         'message'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        // return $this->belongsTo(User::class);
+    // }
 
     public function getUserTimeLine(Int $user_id)
     {

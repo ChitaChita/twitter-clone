@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            {{ $timeline->text }}
+                            {{ $timeline->message }}
                         </div>
                         <div class="card-footer py-1 d-flex justify-content-end bg-white">
                             @if ($timeline->user->id === Auth::user()->id)
@@ -92,14 +92,6 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="mr-3 d-flex align-items-center">
-                                <a href="#"><i class="far fa-comment fa-fw"></i></a>
-                                <p class="mb-0 text-secondary">{{ count($timeline->comments) }}</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <a href="#"><i class="far fa-comment fa-fw"></i></a>
-                                <p class="mb-0 text-secondary">{{ count($timeline->favorites) }}</p>
-                            </div>
                         </div>
                     </div>
                 </div>
