@@ -25,7 +25,7 @@
     "dependencies": {
         "acorn": "^6.4.1",
         "file-loader": "^5.1.0",
-        "minimist": "^1.2.2",
+        "minimist": "^1.2.6",
         "sass-loader": "7.1.0",
         "sha.js": "^2.4.11"
     }
